@@ -572,7 +572,7 @@ void rom_load_manager::display_loading_rom_message(const char *name, bool from_l
 void rom_load_manager::display_rom_load_results(bool from_list)
 {
 	/* final status display */
-	display_loading_rom_message(nullptr, from_list);
+	// display_loading_rom_message(nullptr, from_list);
 
 	/* if we had errors, they are fatal */
 	if (m_errors != 0)
@@ -643,7 +643,7 @@ std::unique_ptr<emu_file> rom_load_manager::open_rom_file(std::initializer_list<
 	tried_file_names.clear();
 
 	// update status display
-	display_loading_rom_message(ROM_GETNAME(romp), from_list);
+	// display_loading_rom_message(ROM_GETNAME(romp), from_list);
 
 	// extract CRC to use for searching
 	u32 crc = 0;

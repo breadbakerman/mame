@@ -1366,7 +1366,8 @@ render_primitive_list &render_target::get_primitives()
 				add_element_primitives(list, item_xform, *curitem.element(), curitem.element_state(), curitem.blend_mode());
 		}
 	}
-	else
+	// DISABLE WHITE BORDER
+	else if ( !m_manager.machine().options().skip_gameinfo() )
 	{
 		// if we are not in the running stage, draw an outer box
 		render_primitive *prim = list.alloc(render_primitive::QUAD);
