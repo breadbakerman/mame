@@ -848,6 +848,8 @@ namespace {
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_TOGGLE_DEBUG,     "Toggle Debugger",        input_seq(KEYCODE_F5) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_SAVE_STATE,       "Save State",             input_seq(KEYCODE_F7, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_LOAD_STATE,       "Load State",             input_seq(KEYCODE_F7, input_seq::not_code, KEYCODE_LSHIFT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_QUICK_SAVE,       "Quick Save",           	input_seq(KEYCODE_7, KEYCODE_LSHIFT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_QUICK_LOAD,       "Quick Load",             input_seq(KEYCODE_7, input_seq::not_code, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_TAPE_START,       "UI (First) Tape Start",  input_seq(KEYCODE_F2, input_seq::not_code, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_TAPE_STOP,        "UI (First) Tape Stop",   input_seq(KEYCODE_F2, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,      UI_DATS,             "UI External DAT View",   input_seq(KEYCODE_LALT, KEYCODE_D) ) \
