@@ -645,7 +645,9 @@ std::unique_ptr<emu_file> rom_load_manager::open_rom_file(std::initializer_list<
 	tried_file_names.clear();
 
 	// update status display
-	// display_loading_rom_message(ROM_GETNAME(romp), from_list);
+	if (!machine().options().quiet_startup()) {
+		display_loading_rom_message(ROM_GETNAME(romp), from_list);
+	}
 
 	// extract CRC to use for searching
 	u32 crc = 0;
