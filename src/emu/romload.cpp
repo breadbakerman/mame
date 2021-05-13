@@ -572,7 +572,9 @@ void rom_load_manager::display_loading_rom_message(const char *name, bool from_l
 void rom_load_manager::display_rom_load_results(bool from_list)
 {
 	/* final status display */
-	// display_loading_rom_message(nullptr, from_list);
+	if (!machine().options().quiet_startup()) {
+		display_loading_rom_message(nullptr, from_list);
+	}
 
 	/* if we had errors, they are fatal */
 	if (m_errors != 0)
