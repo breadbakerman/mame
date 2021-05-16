@@ -23,6 +23,8 @@
 // core configuration options
 #define OPTION_READCONFIG           "readconfig"
 #define OPTION_WRITECONFIG          "writeconfig"
+#define OPTION_OVERRIDE_DEFAULT     "override_default"
+#define OPTION_OVERRIDE_DEFAULTCFG  "override_default_cfg"
 
 // core search path options
 #define OPTION_HOMEPATH             "homepath"
@@ -309,6 +311,8 @@ public:
 	// core configuration options
 	bool read_config() const { return bool_value(OPTION_READCONFIG); }
 	bool write_config() const { return bool_value(OPTION_WRITECONFIG); }
+	bool override_default() const { return bool_value(OPTION_OVERRIDE_DEFAULT); }
+	const char *override_defaultcfg() const { return value(OPTION_OVERRIDE_DEFAULTCFG); }
 
 	// core search path options
 	const char *home_path() const { return value(OPTION_HOMEPATH); }

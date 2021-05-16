@@ -33,6 +33,8 @@ const options_entry emu_options::s_option_entries[] =
 	{ nullptr,                                           nullptr,     OPTION_HEADER,     "CORE CONFIGURATION OPTIONS" },
 	{ OPTION_READCONFIG ";rc",                           "1",         OPTION_BOOLEAN,    "enable loading of configuration files" },
 	{ OPTION_WRITECONFIG ";wc",                          "0",         OPTION_BOOLEAN,    "write configuration to (driver).ini on exit" },
+	{ OPTION_OVERRIDE_DEFAULT,                           "0",         OPTION_BOOLEAN,    "enable default.cfg override" },
+	{ OPTION_OVERRIDE_DEFAULTCFG,                        "custom.cfg",OPTION_STRING,     "default.cfg override config name" },
 
 	// search path options
 	{ nullptr,                                           nullptr,     OPTION_HEADER,     "CORE SEARCH PATH OPTIONS" },

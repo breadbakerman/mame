@@ -84,7 +84,13 @@ int configuration_manager::load_settings()
 
 	/* next load the defaults file */
 	emu_file file(machine().options().cfg_directory(), OPEN_FLAG_READ);
-	osd_file::error filerr = file.open("default.cfg");
+	const char *default_filename = "default.cfg";
+	if (machine().options().override_default() && 
+		machine().options().override_defaultcfg())
+	{
+		default_filename = machine().options().override_defaultcfg();
+	}
+	osd_file::error filerr = file.open(default_filename);
 	osd_printf_verbose("Attempting to parse: default.cfg\n");
 	if (filerr == osd_file::error::NONE)
 		load_xml(file, config_type::DEFAULT);
