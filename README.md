@@ -15,6 +15,14 @@ Static analysis status for entire build (except for third-party parts of project
 
 [![Coverity Scan Status](https://scan.coverity.com/projects/5727/badge.svg?flat=1)](https://scan.coverity.com/projects/mame-emulator)
 
+Changes to Upstream
+===================
+
+* quickload/quicksave using single keypress with configurable keys
+* quiet startup option suppressing all output and warnings
+* override default.cfg to load another config instead effectively keeping that configuration intact
+
+
 What is MAME?
 =============
 
