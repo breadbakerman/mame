@@ -2472,6 +2472,7 @@ cadashu                         // C21 (c) 1989 Taito America Corporation
 cadashu1                        // C21 (c) 1989 Taito America Corporation
 earthjkr                        // (c) 1993 Visco (Japan)
 earthjkra                       //
+earthjkrb                       //
 earthjkrp                       //
 eto                             // (c) 1994 Visco (Japan)
 galmedes                        // (c) 1992 Visco (Japan)
@@ -9832,6 +9833,7 @@ comg175                         // (c) 1984 Cal Omega / Casino Electronics Inc.
 comg176                         // (c) 1982 Cal Omega Inc.
 comg181                         // (c) 1983 Cal Omega Inc.
 comg183                         // (c) 1983 Cal Omega Inc.
+comg184                         // (c) 1983 Cal Omega Inc.
 comg185                         // (c) 1983 Cal Omega Inc.
 comg186                         // (c) 1983 Cal Omega Inc.
 comg187                         // (c) 1983 Cal Omega Inc.
@@ -11634,6 +11636,9 @@ warp1bl                         // bootleg
 dambustr                        // (c) 1981 South West Research
 dambustra                       // (c) 1981 South West Research
 dambustruk                      // (c) 1981 South West Research
+
+@source:dangbar.cpp
+dangbar                         //
 
 @source:darius.cpp
 darius                          // A96 (c) 1986 Taito Corporation Japan (World)
@@ -23451,6 +23456,7 @@ blockr1                         // 06/11/1991 (c) 1991 Capcom (World) (Joystick 
 blockr2                         // 10/09/1991 (c) 1991 Capcom (World)
 cworld                          // 11/1989 (QUIZ 1) (c) 1989 Capcom
 dokaben                         // 3/1989 (c) 1989 Capcom (Japan)
+dokaben2                        // ?/1989 (c) 1989 Capcom (Japan)
 hatena                          // 28/02/1990 (QUIZ 2) (c) 1990 Capcom (Japan)
 marukin                         // 17/10/1990 (c) 1990 Yuga (Japan)
 mgakuen                         // (c) 1988 Yuga

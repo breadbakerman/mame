@@ -3978,6 +3978,8 @@ if (BUSES["VSMILE"]~=null) then
 		MAME_DIR .. "src/devices/bus/vsmile/pad.h",
 		MAME_DIR .. "src/devices/bus/vsmile/mat.cpp",
 		MAME_DIR .. "src/devices/bus/vsmile/mat.h",
+		MAME_DIR .. "src/devices/bus/vsmile/keyboard.cpp",
+		MAME_DIR .. "src/devices/bus/vsmile/keyboard.h",
 		MAME_DIR .. "src/devices/bus/vsmile/vsmile_slot.cpp",
 		MAME_DIR .. "src/devices/bus/vsmile/vsmile_slot.h",
 		MAME_DIR .. "src/devices/bus/vsmile/rom.cpp",
@@ -4455,6 +4457,8 @@ if (BUSES["SAITEK_OSA"]~=null) then
 		MAME_DIR .. "src/devices/bus/saitek_osa/modules.h",
 		MAME_DIR .. "src/devices/bus/saitek_osa/maestroa.cpp",
 		MAME_DIR .. "src/devices/bus/saitek_osa/maestroa.h",
+		MAME_DIR .. "src/devices/bus/saitek_osa/sparc.cpp",
+		MAME_DIR .. "src/devices/bus/saitek_osa/sparc.h",
 	}
 end
 
