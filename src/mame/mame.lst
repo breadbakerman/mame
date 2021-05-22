@@ -11378,6 +11378,9 @@ crazybal                        // EGS
 crbaloon                        // CL  (c) 1980 Taito Corporation
 crbaloon2                       // CL  (c) 1980 Taito Corporation
 
+@source:crei680.cpp
+crei680
+
 @source:crgolf.cpp
 crgolf                          // (c) 1984 Nasco Japan
 crgolfa                         // (c) 1984 Nasco Japan
@@ -19374,6 +19377,7 @@ bassangl                        // 1998 - Bass Angler (GE765 VER. JAA)
 cr589fw                         // 1999 - CR-589 Firmware (700B04)
 cr589fwa                        // 1999 - CR-589 Firmware (700A04)
 darkhleg                        // 1998 - Dark Horse Legend (GX706 VER. JAA)
+ddrkara                         // 1999 - Dance Dance Revolution Karaoke Mix (GQ921 VER. JBB)
 ddr2m                           // 1999 - Dance Dance Revolution 2nd Mix (GN895 VER. JAA)
 ddr2mc                          // 1999 - Dance Dance Revolution 2nd Mix with beatmaniaIIDX CLUB VERSiON (GE896 VER. JAA)
 ddr2mc2                         // 1999 - Dance Dance Revolution 2nd Mix with beatmaniaIIDX substream CLUB VERSiON 2 (GE984 VER. JAA)
