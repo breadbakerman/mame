@@ -46,7 +46,6 @@ TODO:
 - OSA PC link (probably uses MCU serial interface)
 - add power-off
 - add nvram (MCU port $14?)
-- finish internal artwork
 
 ******************************************************************************/
 
@@ -54,6 +53,7 @@ TODO:
 
 #include "bus/saitek_osa/expansion.h"
 #include "cpu/m6800/m6801.h"
+#include "machine/input_merger.h"
 #include "machine/sensorboard.h"
 #include "sound/spkrdev.h"
 #include "video/pwm.h"
@@ -61,6 +61,7 @@ TODO:
 #include "speaker.h"
 
 // internal artwork
+#include "saitek_galileo.lh" // clickable
 #include "saitek_leonardo.lh" // clickable
 
 
@@ -73,22 +74,26 @@ public:
 		driver_device(mconfig, type, tag),
 		m_maincpu(*this, "maincpu"),
 		m_expansion(*this, "exp"),
+		m_stb(*this, "stb"),
 		m_board(*this, "board"),
 		m_display(*this, "display"),
 		m_dac(*this, "dac"),
 		m_inputs(*this, "IN.%u", 0)
 	{ }
 
-	void leo(machine_config &config);
-	void leoa(machine_config &config);
+	void leonardo(machine_config &config);
+	void leonardoa(machine_config &config);
+	void galileo(machine_config &config);
 
 protected:
 	virtual void machine_start() override;
+	virtual void machine_reset() override;
 
 private:
 	// devices/pointers
 	required_device<hd6303y_cpu_device> m_maincpu;
 	required_device<saitekosa_expansion_device> m_expansion;
+	required_device<input_merger_device> m_stb;
 	required_device<sensorboard_device> m_board;
 	required_device<pwm_display_device> m_display;
 	optional_device<speaker_sound_device> m_dac;
@@ -101,7 +106,6 @@ private:
 	void leds_w(u8 data);
 	u8 unk_r();
 	void unk_w(u8 data);
-	void exp_stb_w(int state);
 	void exp_rts_w(int state);
 
 	u8 p2_r();
@@ -119,6 +123,11 @@ void leo_state::machine_start()
 {
 	save_item(NAME(m_inp_mux));
 	save_item(NAME(m_led_data));
+}
+
+void leo_state::machine_reset()
+{
+	m_stb->in_clear<0>();
 }
 
 
@@ -165,15 +174,9 @@ void leo_state::unk_w(u8 data)
 	// ?
 }
 
-void leo_state::exp_stb_w(int state)
-{
-	// STB-P to P5 IS
-	m_maincpu->set_input_line(M6801_IS_LINE, state ? CLEAR_LINE : ASSERT_LINE);
-}
-
 void leo_state::exp_rts_w(int state)
 {
-	// NAND with ACK-P? (not used by module)
+	// NAND with ACK-P (not used by module)
 }
 
 
@@ -212,7 +215,8 @@ void leo_state::p5_w(u8 data)
 	// d2: expansion NMI-P
 	m_expansion->nmi_w(BIT(data, 2));
 
-	// d3: NAND with STB-P?
+	// d3: NAND with STB-P
+	m_stb->in_w<1>(BIT(data, 3));
 
 	// d5: expansion ACK-P
 	m_expansion->ack_w(BIT(data, 5));
@@ -351,7 +355,7 @@ INPUT_PORTS_END
     Machine Configs
 ******************************************************************************/
 
-void leo_state::leo(machine_config &config)
+void leo_state::leonardo(machine_config &config)
 {
 	// basic machine hardware
 	HD6303Y(config, m_maincpu, 12_MHz_XTAL);
@@ -362,6 +366,9 @@ void leo_state::leo(machine_config &config)
 	m_maincpu->out_p5_cb().set(FUNC(leo_state::p5_w));
 	m_maincpu->in_p6_cb().set(FUNC(leo_state::p6_r));
 	m_maincpu->out_p6_cb().set(FUNC(leo_state::p6_w));
+
+	INPUT_MERGER_ANY_LOW(config, m_stb).initial_state(~u32(3));
+	m_stb->output_handler().set_inputline(m_maincpu, M6801_IS_LINE);
 
 	config.set_maximum_quantum(attotime::from_hz(6000));
 
@@ -379,16 +386,20 @@ void leo_state::leo(machine_config &config)
 
 	// expansion module
 	SAITEKOSA_EXPANSION(config, m_expansion, saitekosa_expansion_modules);
-	m_expansion->stb_handler().set(FUNC(leo_state::exp_stb_w));
+	m_expansion->stb_handler().set(m_stb, FUNC(input_merger_device::in_w<0>));
 	m_expansion->rts_handler().set(FUNC(leo_state::exp_rts_w));
 }
 
-void leo_state::leoa(machine_config &config)
+void leo_state::leonardoa(machine_config &config)
 {
-	leo(config);
+	leonardo(config);
+	m_board->set_delay(attotime::from_msec(250)); // slower chessboard response?
+}
 
-	// slower chessboard response?
-	m_board->set_delay(attotime::from_msec(250));
+void leo_state::galileo(machine_config &config)
+{
+	leonardo(config);
+	config.set_default_layout(layout_saitek_galileo);
 }
 
 
@@ -420,8 +431,8 @@ ROM_END
     Drivers
 ******************************************************************************/
 
-//    YEAR  NAME       PARENT    CMP  MACHINE  INPUT      CLASS      INIT        COMPANY, FULLNAME, FLAGS
-CONS( 1986, leonardo,  0,        0,   leo,     leonardo,  leo_state, empty_init, "SciSys", "Kasparov Leonardo (set 1)", MACHINE_SUPPORTS_SAVE | MACHINE_CLICKABLE_ARTWORK | MACHINE_NOT_WORKING )
-CONS( 1986, leonardoa, leonardo, 0,   leoa,    leonardo,  leo_state, empty_init, "SciSys", "Kasparov Leonardo (set 2)", MACHINE_SUPPORTS_SAVE | MACHINE_CLICKABLE_ARTWORK | MACHINE_NOT_WORKING )
+//    YEAR  NAME       PARENT    CMP  MACHINE    INPUT      CLASS      INIT        COMPANY, FULLNAME, FLAGS
+CONS( 1986, leonardo,  0,        0,   leonardo,  leonardo,  leo_state, empty_init, "SciSys", "Kasparov Leonardo (set 1)", MACHINE_SUPPORTS_SAVE | MACHINE_CLICKABLE_ARTWORK )
+CONS( 1986, leonardoa, leonardo, 0,   leonardoa, leonardo,  leo_state, empty_init, "SciSys", "Kasparov Leonardo (set 2)", MACHINE_SUPPORTS_SAVE | MACHINE_CLICKABLE_ARTWORK )
 
-CONS( 1988, galileo,   0,        0,   leo,     galileo,   leo_state, empty_init, "Saitek", "Kasparov Galileo", MACHINE_SUPPORTS_SAVE | MACHINE_CLICKABLE_ARTWORK | MACHINE_NOT_WORKING )
+CONS( 1988, galileo,   leonardo, 0,   galileo,   galileo,   leo_state, empty_init, "Saitek", "Kasparov Galileo", MACHINE_SUPPORTS_SAVE | MACHINE_CLICKABLE_ARTWORK )

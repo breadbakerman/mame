@@ -22487,6 +22487,7 @@ turbotag                        // (c) 1985
 archrivl                        // (c) 1989
 archrivla                       // (c) 1989
 archrivlb                       // bootleg
+basketbal                       // bootleg
 blasted                         // (c) 1988
 intlaser                        // (c) 1987
 pigskin                         // (c) 1990
@@ -34624,6 +34625,9 @@ kov3hd101
 phc25                           //
 phc25j                          //
 
+@source:philipsbo.cpp
+pbo                             // (c) 1987 Philips
+
 @source:phoenix.cpp
 avefenix                        // bootleg (Video Game)
 avefenixl                       // bootleg (Laguna)
@@ -38474,6 +38478,7 @@ crystalca                       // 1998 JCD srl
 3in1semi                        // (c) 1998 SemiCom
 4in1boot                        // (c) 2002 KISoft (includes hacks of Semicom games + Snowbros)
 ballboy                         // bootleg
+ballboy3p                       // bootleg
 cookbib2                        // (c) 1996 SemiCom
 cookbib2a                       // (c) 1996 SemiCom
 cookbib2b                       // (c) 1996 SemiCom
