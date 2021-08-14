@@ -52,6 +52,7 @@ static const nes_mmc mmc_list[] =
 	{ 17, FFE8_BOARD },
 	{ 18, JALECO_SS88006 },
 	{ 19, NAMCOT_163 },
+	// 20 Reserved for emulator use for FDS emulation.
 	{ 21, KONAMI_VRC4 },
 	{ 22, KONAMI_VRC2 },
 	{ 23, KONAMI_VRC2 },
@@ -94,7 +95,7 @@ static const nes_mmc mmc_list[] =
 	{ 60, BMC_4IN1RESET },
 	{ 61, RCM_TF9IN1 },
 	{ 62, BMC_SUPER_700IN1 },
-	{ 63, BMC_CH001 },  // Powerful 255
+	{ 63, BMC_TH22913 },  // Powerful 250/255
 	{ 64, TENGEN_800032 },
 	{ 65, IREM_H3001 },
 	{ 66, STD_GXROM },
@@ -112,7 +113,7 @@ static const nes_mmc mmc_list[] =
 	{ 78, IREM_HOLYDIVR },
 	{ 79, AVE_NINA06 },
 	{ 80, TAITO_X1_005 },
-	// 81 NTDEC's Super Gun. Dump available?
+	{ 81, NTDEC_N715021 }, // 81 Super Gun
 	{ 82, TAITO_X1_017 },
 	{ 83, CONY_BOARD },
 	// 84 Pasofami hacked images?
@@ -156,7 +157,7 @@ static const nes_mmc mmc_list[] =
 	{ 121, KAY_BOARD },
 	// 122 Unused
 	{ 123, UNL_H2288 },
-	// 124 Super Game Mega Type III pirate arcade board?
+	// 124 Super Game Mega Type III bootleg arcade board. Emulated in MAME as supergm3.
 	{ 125, UNL_LH32 },  // Monty no Doki Doki Daidassou - FDS Conversion
 	{ 126, BMC_PJOY84 },
 	// 127 Double Dragon II Japan pirate. Dump available?
@@ -206,7 +207,7 @@ static const nes_mmc mmc_list[] =
 	{ 171, KAISER_KS7058 },
 	{ 172, TXC_DUMARACING },
 	{ 173, TXC_MJBLOCK },
-	// 174 Bisqwit's TV GAME multicart (Legend of Kage, Goonies, etc). Dump available?
+	{ 174, BMC_2751 },
 	{ 175, KAISER_KS7022},
 	{ 176, UNL_XIAOZY },
 	{ 177, HENGG_SRICH },
@@ -249,7 +250,7 @@ static const nes_mmc mmc_list[] =
 	{ 214, BMC_SUPERGUN_20IN1 },
 	{ 215, SUPERGAME_BOOGERMAN },
 	{ 216, RCM_GS2015 },
-	{ 217, BMC_GOLDENCARD_6IN1 },
+	{ 217, BMC_500IN1 },
 	{ 218, NOCASH_NOCHR },
 	// 219 UNL-A9746 (according to Cah4e3's code, no dump available (yet)
 	// 220 Unused - reserved for emulator debugging
@@ -293,7 +294,7 @@ static const nes_mmc mmc_list[] =
 	// 256 OneBus Famiclones
 	// 257 UNIF MAPR PEC-586?
 	// 258 UNIF MAPR 158B?
-	// 259 UNIF MAPR F-15?
+	{ 259, BMC_F15 },
 	// 260 HP10xx/HP20xx multicarts?
 	{ 261, BMC_810544C },
 	{ 262, SACHEN_SHERO },
@@ -301,7 +302,7 @@ static const nes_mmc mmc_list[] =
 	{ 264, YOKO_BOARD },
 	{ 265, BMC_T262 },
 	{ 266, UNL_CITYFIGHT },
-	// 267 8 in 1 JY-119 multicart, not in nes.xml?
+	{ 267, BMC_FCGENJIN_8IN1 },
 	// 268 COOLBOY and MINDKIDS
 	// 269 mc_gx121 seems to be a PnP, but there are two actual multicarts for this mapper?
 	// 270 multicarts on OneBus Famiclones
@@ -321,9 +322,9 @@ static const nes_mmc mmc_list[] =
 	// 284 UNL_DRIPGAME, not in nes.xml
 	{ 285, BMC_A65AS },
 	{ 286, BMC_BENSHIENG },
-	{ 287, BMC_411120C }, // also BMC-K-3088, not in nes.xml?
-	// 288 GKCX1 21 in 1 multicarts, not in nes.xml?
-	// { 289, BMC_60311C }, not in nes.xml?
+	{ 287, BMC_411120C },
+	{ 288, BMC_GKCXIN1 },
+	{ 289, BMC_60311C },
 	{ 290, BMC_NTD_03 },
 	// 291 Kasheng 2-in-1 multicarts not yet in nes.xml?
 	// { 292, UNL_DRAGONFIGHTER }, in nes.xml, not emulated yet
@@ -354,27 +355,27 @@ static const nes_mmc mmc_list[] =
 	// 317 Unused
 	// 318 Unused
 	// 319 HP-898F (has different bank order than UNIF!) and KD-7/9-E boards
-	// 320 BMC-830425C-4391T, not in nes.xml?
+	{ 320, BMC_830425C },
 	// 321 duplicate of 287?
 	// 322 BMC-K-3033 35-in-1, related to mc_35?
 	// 323 Farid SLROM homebrew 8-in-1
 	// 324 Farid UNROM homebrew 8-in-1
 	{ 325, UNL_MALISB },           // Super Mali Splash Bomb pirate hack
-	// 326 yet another Contra bootleg, dump available?
+	{ 326, BTL_CONTRAJ },
 	// 327 BMC-10-24-C-A1 6-in-1
 	{ 328, UNL_RT01 },             // test cart (Russia)
 	{ 329, UNL_EDU2K },
 	// 330 Sangokushi II - Haou no Tairiku hack - N163 bootleg
 	{ 331, BMC_12IN1 },
 	{ 332, BMC_WS },
-	// 333 BMC_8IN1 and BMC-NEWSTAR-GRM070-8IN1 multicarts
+	{ 333, BMC_8IN1 },
 	// 334 5/20-in-1 1993 Copyright multicart, not in nes.xml?
 	{ 335, BMC_CTC09 },
 	{ 336, BMC_K3046 },
 	// { 337, BMC_CTC_12IN1 }, not in nes.xml
 	{ 338, BMC_SA005A },
-	// 339 BMC-K-3006 21-in-1, not in nes.xml?
-	// 340 BMC-K-3036 35-in-1, not in nes.xml?
+	{ 339, BMC_K3006 },
+	{ 340, BMC_K3036 },
 	{ 341, BMC_TJ03 },
 	// 342 COOLGIRL homebrew
 	// 343 reset-based 4-in-1 pirate?
@@ -386,7 +387,7 @@ static const nes_mmc mmc_list[] =
 	{ 349, BMC_G146 },
 	// { 350, BMC_891227 }, not in nes.xml
 	// 351 JY/Techline 9-in-1
-	// 352 Kaiser 4-in-1 KS106C
+	{ 352, KAISER_KS106C },        // 4-in-1
 	// 353 Super Mario Family multicart
 	// 354 250-in-1 multicart with FDS Bubble Bobble
 	// 355 Hwang Shinwei 3-D Block etc, currently has unemulated PIC16C54
@@ -395,14 +396,14 @@ static const nes_mmc mmc_list[] =
 	// 358 JY multicarts, variant of mapper 282
 	// 359 BMC-SB-5013 multicarts
 	// 360 Bit Corp 31-in-1 (ID 3150) (has five accessible DIP switches!)
-	// 361 JY multicarts
+	{ 361, BMC_841101C },
 	// 362 JY-005 multicart
 	// 363 variant of mapper 358?
 	// 364 JY-007, is this ttoons6 in nes.xml?
 	// 365 is this asderp95 in nes.xml?
 	// 366 K-3131GS and K-3131SS 4-in-1 carts
 	// 367 7-in-1 cart that is a close variant of mapper 205
-	// { 368, BTL_YUNG08 }            // SMB2 FDS conversion
+	{ 368, BTL_YUNG08 },            // SMB2 FDS conversion
 	// 369 Super Mario Bros Party multicart
 	// 370 Golden Mario Party II multicart
 	// 371 Spanish PEC-586 computer main cart
@@ -415,7 +416,7 @@ static const nes_mmc mmc_list[] =
 	// 378 8-in-1 multicart, which one?
 	// 379 35-in-1 multicart, similar to mapper 38
 	// 380 970630C multicart
-	// 381 KN-42 2-in-1 with the Big Nose games
+	{ 381, UNL_KN42 },             // 2-in-1 Big Nose games
 	// 382 830928C 5-in-1 and 9-in-1 multicarts
 	// 383 JY-014 multicart
 	// 384 4-in-1 VRC4 clone with Crisis Force
@@ -423,7 +424,7 @@ static const nes_mmc mmc_list[] =
 	// 386 JY-090 multicart
 	// 387 various JY multicarts
 	// 388 various JY multicarts
-	// { 389, CALTRON_9IN1 },
+	{ 389, CALTRON_9IN1 },
 	// 390 variant of mapper 236?
 	// 391 BS-110 MMC3 clone
 	// 392 8-in-1 variant of mc_sv16
@@ -500,7 +501,7 @@ static const nes_mmc mmc_list[] =
 	// { 538, BTL_60106416L }, Exciting Soccer bootleg, not in nes.xml (available baddump needs banks rearranged?)
 	{ 539, BTL_PALTHENA },         // Hikari Shinwa (Kid Icarus) FDS conversion
 	// 540 for mstrfgt6 in nes.xml or a variant of it not in nes.xml?
-	// 541 LittleCom 160 in 1 multicart, not in nes.xml?
+	{ 541, BMC_LITTLECOM160 },
 	// 542 Chairman Mao's 100th anniversary cart? You've got to be kidding me.
 	// 543 5 in 1 (CH-501) multicart, not in nes.xml?
 	// 544 another alt of sango2ht/sanguo2a?

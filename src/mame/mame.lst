@@ -203,6 +203,7 @@ polarisa                        // PS  (c) 1980 Taito
 polarisb                        // PS  (c) 1980 Taito
 polarisbr                       // PS  (c) 1981 Taito do Brasil
 polariso                        // PS  (c) 1980 Taito
+resclunar                       // bootleg (Niemer)
 rollingc                        // Nichibutsu
 schaser                         // RT  Taito
 schasera                        // RT  Taito
@@ -1483,6 +1484,9 @@ f2                              //
 
 @source:apricotp.cpp
 fp                              //
+
+@source:apxen.cpp
+apxen                           // 1985 ACT
 
 @source:aquarium.cpp
 aquarium                        // (c) 1996 Excellent System
@@ -10230,13 +10234,15 @@ minijook                        //
 
 @source:cedar_magnet.cpp
 cedmag
-mag_time
-mag_exzi
-mag_xain
-mag_war
-mag_wara
 mag_burn
 mag_day
+mag_drac
+mag_exzi
+mag_pdak
+mag_time
+mag_war
+mag_wara
+mag_xain
 
 @source:centiped.cpp
 bullsdrt                        // (c) 1985 Shinkai
@@ -12557,6 +12563,9 @@ dpb7000                         //
 
 @source:dps1.cpp
 dps1                            //
+
+@source:dpsv55.cpp
+dpsv55                          //
 
 @source:dragon.cpp
 d64plus                         // Dragon 64 + Compusense Plus addon
@@ -15188,6 +15197,7 @@ gln                             // Genius Leader Notebook
 pitagor                         // Pitagorin
 gls                             // Genius Leader Select
 pitagjr                         // Pitagorin Junior
+scientus                        // Scientus (France, from C.Q.F.D)
 
 @source:genpc.cpp
 pc                              // 1987 PC with CGA
@@ -16252,6 +16262,7 @@ vidchal                         // Select Merchandise
 cambrp                          // Sinclair
 mbaskb                          // Mattel
 mhockey                         // Mattel
+mhockeya                        // Mattel
 msoccer                         // Mattel
 qkracerm                        // National Semiconductor
 qkspeller                       // National Semiconductor
@@ -16280,6 +16291,7 @@ eturtles                        // Entex
 gckong                          // Gakken
 gdigdug                         // Gakken
 ghalien                         // Gakken
+gscobra                         // Gakken
 kingman                         // Tomy
 machiman                        // Bandai
 msthawk                         // Mattel
@@ -20092,6 +20104,8 @@ trojanr                         // 4/1986 (c) 1986 + Romstar
 
 @source:lwriter.cpp
 lwriter                         // Apple LaserWriter
+lwriterplus                     // Apple LaserWriter Plus
+lwriter2nt                      // Apple LaserWriter II NT
 
 @source:lynx.cpp
 lynx                            // Atari Lynx Handheld
@@ -20442,6 +20456,7 @@ magictga                        // (c) 199? Acclaim
 
 @source:magmax.cpp
 magmax                          // (c) 1985
+magmaxa                         // (c) 1985
 
 @source:magnum.cpp
 magnum                          //
@@ -31507,6 +31522,7 @@ tekken51b                       //
 tekken5d                        //
 timecrs3                        //
 timecrs3e                       //
+timecrs3u                       //
 timecrs4                        //
 timecrs4j                       //
 vnight                          //
@@ -31851,6 +31867,7 @@ alpilotj                        // 1999.03 Airline Pilots (Japan, Rev A)
 alpilot                         // 1999.?? Airline Pilots (World, Rev B)
 anmlbskt                        // 2005.01 Animal Basket (date is inside of ROM, probably earlier than release)
 anmlbskta                       // 2005.01 Animal Basket (date is inside of ROM, probably earlier than release)
+anpanman2                       // 2003.09 Soreike! Anpanman Popcorn Koujou 2 (Rev C)
 asndynmt                        // 2007.07 Dynamite Deka EX - Asian dynamite
 asndynmto                       // 2007.07 Dynamite Deka EX - Asian dynamite (older)
 ausfache                        // 2008.02.20 Akatsuki Blitzkampf Ausf. Achse
@@ -35661,6 +35678,9 @@ pv9234                          //
 @source:pve500.cpp
 pve500                          // SONY PVE-500
 
+@source:pwp14.cpp
+pwp14                           // Smith Corona PWP System 14
+
 @source:pwrview.cpp
 pwrview                         // Compugraphic MCS PowerView 10
 
@@ -35793,6 +35813,9 @@ rabbit                          // (c) 1997 Electronic Arts
 rabbita                         // (c) 1996 Electronic Arts
 rabbitj                         // (c) 1997 Electronic Arts
 rabbitjt                        // (c) 1996 Electronic Arts
+
+@source:radikaldarts.cpp
+radikaldrt                      // (c) 2011? Gaelco Darts
 
 @source:radio86.cpp
 impuls03                        //
@@ -36867,6 +36890,7 @@ sauroa                          // (c) 1987
 saurob                          // (c) 1987 bootleg
 saurop                          // (c) 1987
 saurorr                         // (c) 1987
+seawolft                        // (c) 1987 Tecfri
 trckydoc                        // (c) 1987
 trckydoca                       // (c) 1987
 
@@ -39853,7 +39877,8 @@ nprincesu                       // 834-5677 (c) 1985 (S1)
 pitfall2                        // 834-5627 [1985?] reprogrammed, (c) 1984 Activision (S1)
 pitfall2a                       // 834-5627 [1985?] reprogrammed, (c) 1984 Activision (S1)
 pitfall2u                       // 834-5627 [1985?] reprogrammed, (c) 1984 Activision (S1)
-raflesia                        // 834-5753 (c) 1985 Coreland / Sega (S1)
+raflesia                        // 834-5753 (c) 1986 Coreland / Sega (S1)
+raflesiau                       // 834-5191 (c) 1986 Coreland / Sega (S1)
 regulus                         // 834-5328?(c) 1983 (S1)
 reguluso                        // 834-5328?(c) 1983 (S1)
 regulusu                        // 834-5328?(c) 1983 (S1)
@@ -39987,6 +40012,7 @@ zarza1                          //
 ashura                          // C43 (c) 1990 Taito Corporation Japan (World)
 ashuraj                         // C43 (c) 1990 Taito Corporation (Japan)
 ashurau                         // C43 (c) 1990 Taito America Corporation (US)
+bublbust                        // ??? (c) 1994 Taito America Corporation (US)
 crimec                          // B99 (c) 1989 Taito Corporation Japan (World)
 crimecj                         // B99 (c) 1989 Taito Corporation (Japan)
 crimecu                         // B99 (c) 1989 Taito America Corporation (US)
@@ -40293,8 +40319,9 @@ spacegunj                       // C57 (c) 1990 Taito Corporation (Japan)
 spacegunu                       // C57 (c) 1990 Taito America Corporation (US)
 
 @source:taitoair.cpp
-ainferno                        // C45 (c) 1990 Taito America Corporation (US)
+ainferno                        // C45 (c) 1990 Taito Corporation Japan (World)
 ainfernoj                       // C45 (c) 1990 Taito Corporation (Japan)
+ainfernou                       // C45 (c) 1990 Taito America Corporation (US)
 topland                         // B62 (c) 1988 Taito Corporation Japan (World)
 toplandj                        // B62 (c) 1988 Taito Corporation (Japan)
 
@@ -43793,16 +43820,16 @@ simldv1000                      // Pioneer LD-V1000
 simpr8210                       // Pioneer PR-8210
 
 @source:gsz80.cpp
-gsz80
+gsz80                           // Grant Searle's Simple Z-80 Machine
 
 @source:gscpm.cpp
-gscpm
+gscpm                           // Grant Searle's Simple CP/M Machine
 
 @source:gs6502.cpp
-gs6502
+gs6502                          // Grant Searle's Simple 6502 Machine
 
 @source:gs6809.cpp
-gs6809
+gs6809                          // Grant Searle's Simple 6809 Machine
 
 @source:ultim809.cpp
 ultim809
