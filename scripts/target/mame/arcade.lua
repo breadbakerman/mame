@@ -864,6 +864,7 @@ FORMATS["NASLITE_DSK"] = true
 FORMATS["BASICDSK"] = true
 FORMATS["IBMXDF_DSK"] = true
 FORMATS["IPF_DSK"] = true
+FORMATS["TZX_CAS"] = true
 
 --------------------------------------------------
 -- this is the list of driver libraries that
@@ -1763,8 +1764,6 @@ files {
 	MAME_DIR .. "src/mame/video/decocass.cpp",
 	MAME_DIR .. "src/mame/drivers/deshoros.cpp",
 	MAME_DIR .. "src/mame/drivers/dietgo.cpp",
-	MAME_DIR .. "src/mame/includes/dietgo.h",
-	MAME_DIR .. "src/mame/video/dietgo.cpp",
 	MAME_DIR .. "src/mame/drivers/dreambal.cpp",
 	MAME_DIR .. "src/mame/drivers/exprraid.cpp",
 	MAME_DIR .. "src/mame/includes/exprraid.h",
@@ -1775,8 +1774,6 @@ files {
 	MAME_DIR .. "src/mame/video/firetrap.cpp",
 	MAME_DIR .. "src/mame/drivers/funkyjet.cpp",
 	MAME_DIR .. "src/mame/drivers/karnov.cpp",
-	MAME_DIR .. "src/mame/includes/karnov.h",
-	MAME_DIR .. "src/mame/video/karnov.cpp",
 	MAME_DIR .. "src/mame/drivers/kchamp.cpp",
 	MAME_DIR .. "src/mame/includes/kchamp.h",
 	MAME_DIR .. "src/mame/video/kchamp.cpp",
@@ -2540,6 +2537,7 @@ files {
 	MAME_DIR .. "src/mame/drivers/konblands.cpp",
 	MAME_DIR .. "src/mame/drivers/kongs470.cpp",
 	MAME_DIR .. "src/mame/drivers/konmedal.cpp",
+	MAME_DIR .. "src/mame/drivers/konmedal020.cpp",
 	MAME_DIR .. "src/mame/drivers/konmedal68k.cpp",
 	MAME_DIR .. "src/mame/drivers/kontest.cpp",
 	MAME_DIR .. "src/mame/drivers/konendev.cpp",
@@ -4787,6 +4785,8 @@ files {
 	MAME_DIR .. "src/mame/drivers/acefruit.cpp",
 	MAME_DIR .. "src/mame/drivers/aces1.cpp",
 	MAME_DIR .. "src/mame/drivers/acesp.cpp",
+	MAME_DIR .. "src/mame/machine/ace_sp_reelctrl.cpp",
+	MAME_DIR .. "src/mame/machine/ace_sp_reelctrl.h",
 	MAME_DIR .. "src/mame/drivers/age_candy.cpp",
 	MAME_DIR .. "src/mame/drivers/alinvade.cpp",
 	MAME_DIR .. "src/mame/drivers/amaticmg.cpp",

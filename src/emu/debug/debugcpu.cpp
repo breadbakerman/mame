@@ -566,10 +566,10 @@ void device_debug::reinstall(address_space &space, read_or_write mode)
 		if (m_track_mem)
 			switch (space.data_width())
 			{
-			case  8: m_phw[id] = space.install_read_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u8  &data, u8 ) { write_tracking(space, address, data); }, m_phw[id]); break;
-			case 16: m_phw[id] = space.install_read_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u16 &data, u16) { write_tracking(space, address, data); }, m_phw[id]); break;
-			case 32: m_phw[id] = space.install_read_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u32 &data, u32) { write_tracking(space, address, data); }, m_phw[id]); break;
-			case 64: m_phw[id] = space.install_read_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u64 &data, u64) { write_tracking(space, address, data); }, m_phw[id]); break;
+			case  8: m_phw[id] = space.install_write_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u8  &data, u8 ) { write_tracking(space, address, data); }, m_phw[id]); break;
+			case 16: m_phw[id] = space.install_write_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u16 &data, u16) { write_tracking(space, address, data); }, m_phw[id]); break;
+			case 32: m_phw[id] = space.install_write_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u32 &data, u32) { write_tracking(space, address, data); }, m_phw[id]); break;
+			case 64: m_phw[id] = space.install_write_tap(0, space.addrmask(), "track_mem", [this, &space](offs_t address, u64 &data, u64) { write_tracking(space, address, data); }, m_phw[id]); break;
 			}
 	}
 }
@@ -581,6 +581,21 @@ void device_debug::reinstall_all(read_or_write mode)
 		if (m_memory->has_space(i))
 			reinstall(m_memory->space(i), mode);
 }
+
+//-------------------------------------------------
+//  set_track_mem - start or stop tracking memory
+//  writes
+//-------------------------------------------------
+
+void device_debug::set_track_mem(bool value)
+{
+	if (m_track_mem != value)
+	{
+		m_track_mem = value;
+		reinstall_all(read_or_write::WRITE);
+	}
+}
+
 
 //-------------------------------------------------
 //  start_hook - the scheduler calls this hook
@@ -1607,12 +1622,20 @@ void device_debug::prepare_for_step_overout(offs_t pc)
 	}
 
 	// if we're stepping out and this isn't a step out instruction, reset the steps until stop to a high number
+	// (TODO: this doesn't work with conditional return instructions)
 	if ((m_flags & DEBUG_FLAG_STEPPING_OUT) != 0)
 	{
 		if ((dasmresult & util::disasm_interface::SUPPORTED) != 0 && (dasmresult & util::disasm_interface::STEP_OUT) == 0)
 			m_stepsleft = 100;
 		else
-			m_stepsleft = 1;
+		{
+			// add extra instructions for delay slots
+			int extraskip = (dasmresult & util::disasm_interface::OVERINSTMASK) >> util::disasm_interface::OVERINSTSHIFT;
+			m_stepsleft = extraskip + 1;
+
+			// take the last few steps normally
+			m_flags = (m_flags | DEBUG_FLAG_STEPPING) & ~DEBUG_FLAG_STEPPING_OUT;
+		}
 	}
 }
 
