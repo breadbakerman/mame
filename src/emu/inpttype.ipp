@@ -854,6 +854,8 @@ namespace {
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PASTE,             N_p("input-name", "UI Paste Text"),          input_seq(KEYCODE_SCRLOCK, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SAVE_STATE,        N_p("input-name", "Save State"),             input_seq(KEYCODE_F7, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_LOAD_STATE,        N_p("input-name", "Load State"),             input_seq(KEYCODE_F7, input_seq::not_code, KEYCODE_LSHIFT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_QUICK_SAVE,        N_p("input-name", "Quick Save"),             input_seq(KEYCODE_7, KEYCODE_LSHIFT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_QUICK_LOAD,        N_p("input-name", "Quick Load"),             input_seq(KEYCODE_7, input_seq::not_code, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_TAPE_START,        N_p("input-name", "UI (First) Tape Start"),  input_seq(KEYCODE_F2, input_seq::not_code, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_TAPE_STOP,         N_p("input-name", "UI (First) Tape Stop"),   input_seq(KEYCODE_F2, KEYCODE_LSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_DATS,              N_p("input-name", "UI External DAT View"),   input_seq(KEYCODE_LALT, KEYCODE_D) ) \
