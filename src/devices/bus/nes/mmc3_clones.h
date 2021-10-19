@@ -68,12 +68,19 @@ class nes_family4646_device : public nes_txrom_device
 {
 public:
 	// construction/destruction
-	nes_family4646_device(const machine_config &mconfig, const char *tag, device_t *owner, uint32_t clock);
+	nes_family4646_device(const machine_config &mconfig, const char *tag, device_t *owner, u32 clock);
 
-	// device-level overrides
-	virtual void write_m(offs_t offset, uint8_t data) override;
+	virtual void write_m(offs_t offset, u8 data) override;
+	virtual void prg_cb(int start, int bank) override;
 
 	virtual void pcb_reset() override;
+
+protected:
+	// device-level overrides
+	virtual void device_start() override;
+
+private:
+	u8 m_reg[4];
 };
 
 
@@ -357,6 +364,20 @@ public:
 
 protected:
 	virtual void set_chr(uint8_t chr, int chr_base, int chr_mask) override;
+};
+
+
+// ======================> nes_cocoma_device
+
+class nes_cocoma_device : public nes_txrom_device
+{
+public:
+	// construction/destruction
+	nes_cocoma_device(const machine_config &mconfig, const char *tag, device_t *owner, u32 clock);
+
+	virtual void write_h(offs_t offset, u8 data) override;
+
+	virtual void pcb_reset() override;
 };
 
 
@@ -884,6 +905,31 @@ private:
 };
 
 
+// ======================> nes_bmc_810305c_device
+
+class nes_bmc_810305c_device : public nes_txsrom_device
+{
+public:
+	// construction/destruction
+	nes_bmc_810305c_device(const machine_config &mconfig, const char *tag, device_t *owner, u32 clock);
+
+	virtual void write_h(offs_t offset, u8 data) override;
+	virtual void chr_cb(int start, int bank, int source) override;
+
+	virtual void pcb_reset() override;
+
+protected:
+	// device-level overrides
+	virtual void device_start() override;
+
+	virtual void set_prg(int prg_base, int prg_mask) override;
+	virtual void set_chr(u8 chr, int chr_base, int chr_mask) override;
+
+private:
+	u8 m_outer;
+};
+
+
 // ======================> nes_bmc_820720c_device
 
 class nes_bmc_820720c_device : public nes_txrom_device
@@ -915,20 +961,12 @@ class nes_bmc_830118c_device : public nes_txrom_device
 {
 public:
 	// construction/destruction
-	nes_bmc_830118c_device(const machine_config &mconfig, const char *tag, device_t *owner, uint32_t clock);
+	nes_bmc_830118c_device(const machine_config &mconfig, const char *tag, device_t *owner, u32 clock);
 
-	virtual void write_m(offs_t offset, uint8_t data) override;
+	virtual void write_m(offs_t offset, u8 data) override;
 	virtual void prg_cb(int start, int bank) override;
-	virtual void chr_cb(int start, int bank, int source) override;
 
 	virtual void pcb_reset() override;
-
-protected:
-	// device-level overrides
-	virtual void device_start() override;
-
-private:
-	uint8_t m_reg;
 };
 
 
@@ -1042,6 +1080,7 @@ DECLARE_DEVICE_TYPE(NES_TXC_TW,        nes_txc_tw_device)
 DECLARE_DEVICE_TYPE(NES_KOF97,         nes_kof97_device)
 DECLARE_DEVICE_TYPE(NES_KOF96,         nes_kof96_device)
 DECLARE_DEVICE_TYPE(NES_SF3,           nes_sf3_device)
+DECLARE_DEVICE_TYPE(NES_COCOMA,        nes_cocoma_device)
 DECLARE_DEVICE_TYPE(NES_GOUDER,        nes_gouder_device)
 DECLARE_DEVICE_TYPE(NES_SA9602B,       nes_sa9602b_device)
 DECLARE_DEVICE_TYPE(NES_SACHEN_SHERO,  nes_sachen_shero_device)
@@ -1069,6 +1108,7 @@ DECLARE_DEVICE_TYPE(NES_BMC_K3006,     nes_bmc_k3006_device)
 DECLARE_DEVICE_TYPE(NES_BMC_K3033,     nes_bmc_k3033_device)
 DECLARE_DEVICE_TYPE(NES_BMC_00202650,  nes_bmc_00202650_device)
 DECLARE_DEVICE_TYPE(NES_BMC_411120C,   nes_bmc_411120c_device)
+DECLARE_DEVICE_TYPE(NES_BMC_810305C,   nes_bmc_810305c_device)
 DECLARE_DEVICE_TYPE(NES_BMC_820720C,   nes_bmc_820720c_device)
 DECLARE_DEVICE_TYPE(NES_BMC_830118C,   nes_bmc_830118c_device)
 DECLARE_DEVICE_TYPE(NES_BMC_830832C,   nes_bmc_830832c_device)

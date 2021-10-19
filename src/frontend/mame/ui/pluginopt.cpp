@@ -9,12 +9,12 @@
 *********************************************************************/
 
 #include "emu.h"
+#include "pluginopt.h"
 
-#include "ui/pluginopt.h"
 #include "ui/utils.h"
 
-#include "mame.h"
 #include "luaengine.h"
+#include "mame.h"
 
 
 namespace ui {
@@ -23,7 +23,7 @@ void menu_plugin::handle()
 {
 	const event *menu_event = process(0);
 
-	if (menu_event != nullptr && menu_event->itemref != nullptr)
+	if (menu_event && menu_event->itemref)
 	{
 		if (menu_event->iptkey == IPT_UI_SELECT)
 			menu::stack_push<menu_plugin_opt>(ui(), container(), (char *)menu_event->itemref);
@@ -31,8 +31,8 @@ void menu_plugin::handle()
 }
 
 menu_plugin::menu_plugin(mame_ui_manager &mui, render_container &container) :
-		menu(mui, container),
-		m_plugins(mame_machine_manager::instance()->lua()->get_menu())
+	menu(mui, container),
+	m_plugins(mame_machine_manager::instance()->lua()->get_menu())
 {
 }
 
@@ -72,43 +72,45 @@ void menu_plugin_opt::handle()
 {
 	const event *menu_event = process(0);
 
-	if (menu_event != nullptr && (uintptr_t)menu_event->itemref)
+	if (menu_event)
 	{
 		std::string key;
-		switch(menu_event->iptkey)
+		switch (menu_event->iptkey)
 		{
-			case IPT_UI_UP:
-				key = "up";
-				break;
-			case IPT_UI_DOWN:
-				key = "down";
-				break;
-			case IPT_UI_LEFT:
-				key = "left";
-				break;
-			case IPT_UI_RIGHT:
-				key = "right";
-				break;
-			case IPT_UI_SELECT:
-				key = "select";
-				break;
-			case IPT_UI_DISPLAY_COMMENT:
-				key = "comment";
-				break;
-			case IPT_UI_CLEAR:
-				key = "clear";
-				break;
-			case IPT_UI_CANCEL:
-				key = "cancel";
-				break;
-			case IPT_SPECIAL:
-				key = std::to_string((u32)menu_event->unichar);
-				break;
-			default:
-				return;
+		case IPT_UI_UP:
+			key = "up";
+			break;
+		case IPT_UI_DOWN:
+			key = "down";
+			break;
+		case IPT_UI_LEFT:
+			key = "left";
+			break;
+		case IPT_UI_RIGHT:
+			key = "right";
+			break;
+		case IPT_UI_SELECT:
+			key = "select";
+			break;
+		case IPT_UI_DISPLAY_COMMENT:
+			key = "comment";
+			break;
+		case IPT_UI_CLEAR:
+			key = "clear";
+			break;
+		case IPT_UI_CANCEL:
+			key = "cancel";
+			break;
+		case IPT_SPECIAL:
+			key = std::to_string((u32)menu_event->unichar);
+			break;
+		default:
+			return;
 		}
-		if(mame_machine_manager::instance()->lua()->menu_callback(m_menu, (uintptr_t)menu_event->itemref, key))
+		if (mame_machine_manager::instance()->lua()->menu_callback(m_menu, uintptr_t(menu_event->itemref), key))
 			reset(reset_options::REMEMBER_REF);
+		else if (menu_event->iptkey == IPT_UI_CANCEL)
+			stack_pop();
 	}
 }
 

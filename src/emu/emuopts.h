@@ -27,7 +27,7 @@
 #define OPTION_OVERRIDE_DEFAULTCFG  "override_default_cfg"
 
 // core search path options
-#define OPTION_HOMEPATH             "homepath"
+#define OPTION_PLUGINDATAPATH       "homepath"
 #define OPTION_MEDIAPATH            "rompath"
 #define OPTION_HASHPATH             "hashpath"
 #define OPTION_SAMPLEPATH           "samplepath"
@@ -316,7 +316,7 @@ public:
 	const char *override_defaultcfg() const { return value(OPTION_OVERRIDE_DEFAULTCFG); }
 
 	// core search path options
-	const char *home_path() const { return value(OPTION_HOMEPATH); }
+	const char *plugin_data_path() const { return value(OPTION_PLUGINDATAPATH); }
 	const char *media_path() const { return value(OPTION_MEDIAPATH); }
 	const char *hash_path() const { return value(OPTION_HASHPATH); }
 	const char *sample_path() const { return value(OPTION_SAMPLEPATH); }

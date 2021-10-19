@@ -106,6 +106,7 @@ static const nes_pcb pcb_list[] =
 	{ "cne_decathl",      CNE_DECATHLON },
 	{ "cne_fsb",          CNE_FSB },
 	{ "cne_shlz",         CNE_SHLZ },
+	{ "cocoma",           COCOMA_BOARD },
 	{ "nanjing",          NANJING_BOARD },  // mapper 163
 	{ "ntdec_2746",       NTDEC_2746 },
 	{ "ntdec_asder",      NTDEC_ASDER },    // mapper 112
@@ -203,6 +204,7 @@ static const nes_pcb pcb_list[] =
 	{ "mk2",              UNL_MK2 },
 	{ "zemina",           ZEMINA_BOARD },
 	// misc bootleg boards
+	{ "ax40g",            UNL_AX40G },
 	{ "ax5705",           UNL_AX5705 },
 	{ "sc127",            UNL_SC127 },
 	{ "mariobaby",        BTL_MARIOBABY },
@@ -215,6 +217,8 @@ static const nes_pcb pcb_list[] =
 	{ "smb2jb",           BTL_SMB2JB },
 	{ "yung08",           BTL_YUNG08 },
 	{ "btl_0353",         BTL_0353 },
+	{ "btl_2yudb",        BTL_2YUDB },
+	{ "btl_900218",       BTL_900218 },  // pirate The Lord of King
 	{ "09034a",           BTL_09034A },
 	{ "l001",             BTL_L001 },
 	{ "batmanfs",         BTL_BATMANFS },
@@ -258,10 +262,12 @@ static const nes_pcb pcb_list[] =
 	{ "bmc_80013b",       BMC_80013B },
 	{ "bmc_810544c",      BMC_810544C },
 	{ "bmc_830425c",      BMC_830425C },
+	{ "bmc_830506c",      BMC_830506C },
 	{ "bmc_830928c",      BMC_830928C },
 	{ "bmc_850437c",      BMC_850437C },
 	{ "bmc_970630c",      BMC_970630C },
 	{ "bmc_jy820845c",    BMC_JY820845C },
+	{ "srpg_5in1",        BMC_SRPG_5IN1 },
 	{ "n32_4in1",         BMC_N32_4IN1 },
 	{ "ntd03",            BMC_NTD_03 },
 	{ "bmc_ctc09",        BMC_CTC09 },
@@ -324,6 +330,7 @@ static const nes_pcb pcb_list[] =
 	{ "bmc_gold7in1",     BMC_GOLD_7IN1 },
 	{ "bmc_00202650",     BMC_00202650 },
 	{ "bmc_411120c",      BMC_411120C },
+	{ "bmc_810305c",      BMC_810305C },
 	{ "bmc_820720c",      BMC_820720C },
 	{ "bmc_830118c",      BMC_830118C },
 	{ "bmc_830832c",      BMC_830832C },
@@ -361,9 +368,9 @@ static const nes_pcb pcb_list[] =
 	{ "unl_malisb",       UNL_MALISB },
 	{ "sgpipe",           BTL_SHUIGUAN },
 	{ "rt01",             UNL_RT01 },   // Russian Test Cart
-	{ "unl_whero",        UNL_WORLDHERO },
 	{ "unl_43272",        UNL_43272 },
 	{ "tf1201",           UNL_TF1201 },
+	{ "th21311",          UNL_TH21311 },
 	{ "unl_cfight",       UNL_CITYFIGHT },
 	{ "ninjaryu",         UNL_NINJARYU },
 	{ "unl_eh8813a",      UNL_EH8813A },  // Dr. Mario II
@@ -384,7 +391,6 @@ static const nes_pcb pcb_list[] =
 	{ "bmc_hik_kof",      UNSUPPORTED_BOARD },
 	{ "onebus",           UNSUPPORTED_BOARD },
 	{ "coolboy",          UNSUPPORTED_BOARD },
-	{ "btl_900218",       UNSUPPORTED_BOARD },  // pirate The Lord of King, to be emulated soon
 	{ "pec586",           UNSUPPORTED_BOARD },
 	{ "unl_drgnfgt",      UNSUPPORTED_BOARD },  // Dragon Fighter by Flying Star
 	{ "test",             TEST_BOARD },
