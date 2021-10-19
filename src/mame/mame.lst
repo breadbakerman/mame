@@ -109,6 +109,7 @@ sprtdart                        // (c) 1993 Compumatic / Desarrollos y Recambios
 @source:4enraya.cpp
 4enraya                         // (c) 1990 IDSA
 4enrayaa                        //
+tourpgum
 unkpacg                         // (c) 19?? ???
 unkpacga                        //
 unkpacgb                        //
@@ -1447,6 +1448,7 @@ apple2euk                       // Jan 1983 Apple //e (UK)
 las128e2                        // ??? Laser 128 EX2
 las128ex                        // ??? 1988 Laser 128 EX
 laser128                        // ??? 1987 Laser 128
+laser128o                       //
 mprof3                          // Microprofessor III
 prav8c                          // Pravetz 8C
 tk3000                          // Microdigital TK3000
@@ -1728,6 +1730,7 @@ partygrs                        // (c) 2001
 partygrsa                       // (c) 2001
 partygrsb                       // (c) 2001
 peaflut                         // (c) 2000
+peafluta                        // (c) 2000
 pengpay                         // (c) 1997
 pengpaya                        // (c) 1996
 pengpayb                        // (c) 1997
@@ -9782,11 +9785,13 @@ eballchp                        //
 esclwrld                        //
 esclwrldg                       //
 hardbody                        //
+hardbodyc                       //
 hardbodyg                       //
 hvymetap                        //
 hvymetapg                       //
 ladyluck                        //
 motrdome                        //
+motrdomeb                       //
 motrdomeg                       //
 prtyanim                        //
 prtyanimg                       //
@@ -10736,7 +10741,8 @@ comx35n                         //
 comx35p                         //
 
 @source:conchess.cpp
-concply
+concply5
+concply8
 concplyv
 concstd
 
@@ -11980,6 +11986,7 @@ hook_401                        //
 hook_401_p                      //
 hook_404                        //
 hook_408                        //
+hook_e406                       //
 jupk_305                        // (c) 1993 Data East
 jupk_307                        //
 jupk_501                        //
@@ -12382,6 +12389,7 @@ bm5thmix                        // GX981 (c) 1999 (Japan)
 bm6thmix                        // GXA21 (c) 2001 (Japan)
 bm7thmix                        // GXB07 (c) 2001 (Japan)
 bmclubmx                        // GX993 (c) 2000 (Japan)
+bmcmxaac                        // GX858 (c) 1999 (Asia)
 bmcompm2                        // GX988 (c) 2000 (Japan)
 bmcompmx                        // GX858 (c) 1999 (Japan)
 bmcorerm                        // GXA05 (c) 1999 (Japan)
@@ -14508,6 +14516,7 @@ kamikazesp                      // bootleg (Euromatic S.A.)
 kamikazp                        // bootleg (Potomac Games)
 kingball                        // (c) 1980 Namco
 kingballj                       // (c) 1980 Namco
+komemokos                       // hack
 kong                            // (c) Taito (Brazil) - rewrite of Donkey Kong
 ladybugg                        // bootleg
 levers                          // (c) 1983 Rock-ola
@@ -14568,6 +14577,7 @@ pacmanbl                        // bootleg
 pacmanbla                       // bootleg
 pacmanblb                       // bootleg
 pacmanblc                       // bootleg (Calfesa)
+pacmanblci                      // bootleg (Cirsa)
 pacmanblv                       // bootleg (Video Dens)
 pajaroes                        // bootleg
 phoenxp2                        // bootleg
@@ -16465,6 +16475,7 @@ trshutvoy                       // Tronica
 trspacmis                       // Tronica
 trspider                        // Tronica
 trsrescue                       // Tronica
+trthuball                       // Tronica
 tsddragon                       // Tiger
 tsf2010                         // Tiger
 tsfight2                        // Tiger
@@ -17622,6 +17633,7 @@ joystand                        // 1997 Yuvo
 america                         //
 aqualand                        //
 faeton                          //
+faeton6d                        //
 halley                          //
 halleya                         //
 lortium                         //
@@ -19372,6 +19384,7 @@ vsnetscreb                      // 1996.?? GX627 (Europe)
 vsnetscrj                       // 1996.12 GX627 (Japan)
 vsnetscru                       // 1996.?? GX627 (US)
 winspike                        // 1997.?? GX705 (Europe)
+winspikea                       // 1997.?? GX705 (Asia)
 winspikej                       // 1997.07 GX705 (Japan)
 
 @source:konamim2.cpp
@@ -19428,6 +19441,9 @@ slimekun
 tsukande
 tsupenta
 tsururin
+
+@source:konmedal020.cpp
+gs471
 
 @source:konmedal68k.cpp
 crossmg2
@@ -20103,6 +20119,9 @@ luckybalb                       // (c) 1996 Sielcon Games
 luckybalc                       // (c) 1996 Sielcon Games
 luckybald                       // (c) 1996 Sielcon Games
 luckybale                       // (c) 1996 Sielcon Games
+
+@source:luna_68k.cpp
+luna                            // Omron Luna
 
 @source:lvcards.cpp
 lvcards                         // (c) 1985 Tehkan
@@ -23155,10 +23174,10 @@ realbroda                       // (c) 1995 Merit
 spitboss                        // (c) 1988 Merit
 
 @source:merits.cpp
+pubtimed2ch                     // (c) 1992 Merit Industries, Inc.
 scrpiond                        // (c) 1999 Merit Industries, Inc.
 scrpionda                       // (c) 1997 Merit Industries, Inc.
 scrpiondb                       // (c) 1993 Merit Industries, Inc.
-scrpiondc                       // (c) 1992 Merit Industries, Inc.
 
 @source:meritsdx.cpp
 scrpndx                        //
@@ -24119,6 +24138,9 @@ m4drac                          // Dracula (Barcrest - Nova)
 m4draca                         //
 m4dracb                         //
 m4dragon                        // Dragon (Nova)
+m4esctbg                        // Escalera Tobogan (Vifico)
+m4esctbga                       //
+m4esctbgb                       //
 m4exgam                         // Extra Game (Fairplay - Barcrest)
 m4fortcb                        // Fortune Club (Barcrest)
 m4fortcba                       //
@@ -32051,6 +32073,7 @@ mushi2k62                       // 2006.?? MushiKing The King Of Beetles 2006 Se
 mushike                         // 2004.?? MushiKing The King Of Beetle (2K3 2ND Ver. 1.003-, World)
 mushikeo                        // 2004.?? MushiKing The King Of Beetle (2K3 2ND Ver. 1.002-, World)
 mushikep                        // 2004.?? MushiKing The King Of Beetle (Prototype)
+mushikk                         // 2004.?? MushiKing The King Of Beetle (2K3 2ND Ver. 1.000-, Korea)
 mushi2eo                        // 2005.?? Mushiking The King Of Beetles II / III / III+ (Ver. 1.001) (World)
 mushik2e                        // 2005.?? Mushiking The King Of Beetles II / III / III+ (Ver. 2.001) (World)
 mushik4e                        // 2007.?? Mushiking The King Of Beetles IV / V / VI (World)
@@ -33836,12 +33859,14 @@ pc4                             //
 pc6001                          //
 pc6001a                         //
 pc6001mk2                       //
-pc6001sr                        //
 pc6601                          //
+pc6001mk2sr                     //
+pc6601sr                        //
 
 @source:pc8001.cpp
-pc8001                          //
-pc8001mk2                       //
+pc8001                          // 1979
+pc8001mk2                       // 1983
+pc8001mk2sr                     // 1985
 
 @source:pc8401a.cpp
 pc8401a                         // roms needed
@@ -33999,6 +34024,7 @@ pengo2u                         // 834-0386 (c) 1982 Sega
 pengo3u                         // 834-0386 (c) 1982 Sega
 pengo4                          // 834-0386 (c) 1982 Sega
 pengo5                          // 834-0386 (c) 1982 Sega
+pengo6                          // 834-0386 (c) 1982 Sega
 pengob                          // bootleg
 penta                           // bootleg
 
@@ -36955,6 +36981,7 @@ hisaturn                        // Hitachi HiSaturn
 saturn                          // 1995 Sega Saturn (USA)
 saturneu                        // 1995 Sega Saturn (Europe)
 saturnjp                        // 1994 Sega Saturn (Japan)
+saturnkr                        // 1995 Samsung Saturn (Korea)
 vsaturn                         // JVC V-Saturn
 
 @source:sauro.cpp
@@ -37259,6 +37286,7 @@ elim4p                          // (c) 1981 Gremlin
 spacfury                        // (c) 1981
 spacfurya                       // no copyright notice
 spacfuryb                       // no copyright notice
+spacfurybl                      // bootleg
 startrek                        // (c) 1982
 tacscan                         // (c) 1982
 zektor                          // (c) 1982
@@ -41168,6 +41196,8 @@ tmntuc                          // GX963 (c) 1989 (US)
 trigon                          // GX939 (c) 1990 (Japan)
 
 @source:tmspoker.cpp
+jlasvegas                       // (c) 198? Jeutel
+jlasvegasa                      // (c) 198? Jeutel
 tmspoker                        //
 
 @source:tnzs.cpp
@@ -41720,6 +41750,7 @@ twinsed2                        // (c) 1994 Electronic Devices
 
 @source:tx0.cpp
 tx0_64kw                        // April 1956 MIT TX-0 (64kw RAM)
+tx0_8kwo                        // 1959 MIT TX-0 (8kw RAM)
 tx0_8kw                         // 1962 MIT TX-0 (8kw RAM)
 
 @source:tx1.cpp
